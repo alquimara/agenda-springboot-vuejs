@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8"/>
+    <title>Contatos</title>
+</head>
+<body>
+
+
+<nav>
+    <div class="nav-wrapper">
+        <ul id="nav-mobile" class="container hide-on-med-and-down">
+            <li class="active"><a href="/">Contatos</a></li>
+            <li><a href="/cadastrar">Cadastro</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="contato : ${contatos}">
+            <td th:text="${contato.nome}"></td>
+            <td th:text="${contato.email}"></td>
+            <td th:text="${contato.telefone}"></td>
+            <td><a th:href="@{${'/' + contato.id}}"><i class="material-icons">edit</i></a></td>
+            <td> <a th:href="@{${'/excluir/' + contato.id}}"><i class="material-icons">delete</i></a></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
